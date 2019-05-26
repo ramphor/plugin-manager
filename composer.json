@@ -12,6 +12,8 @@
     "minimum-stability": "dev",
     "require": {},
     "autoload": {
-        "Jank\\Plugin\\": "src/"
+        "psr-4": {
+            "Jank\\Plugin\\": "src/"
+        }
     }
 }

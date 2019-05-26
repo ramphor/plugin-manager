@@ -1,0 +1,14 @@
+{
+    "name": "jankx/plugin-manager",
+    "description": "The plugin manager use to install required, recommened plugins for WordPress",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Puleeno Nguyen",
+            "email": "puleeno@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

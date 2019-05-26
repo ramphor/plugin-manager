@@ -11,7 +11,7 @@ if (! class_exists('WP_List_Table')) {
     require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
 }
 
-if (! class_exists('TGMPA_List_Table')) {
+if (! class_exists('ListTable')) {
 
     /**
      * List table class for handling plugins.
@@ -30,7 +30,7 @@ if (! class_exists('TGMPA_List_Table')) {
      * @author  Thomas Griffin
      * @author  Gary Jones
      */
-    class TGMPA_List_Table extends WP_List_Table
+    class ListTable extends WP_List_Table
     {
         /**
          * TGMPA instance.
@@ -826,9 +826,9 @@ if (! class_exists('TGMPA_List_Table')) {
                 }
                 unset($slug, $name, $source);
 
-                // Create a new instance of TGMPA_Bulk_Installer.
-                $installer = new TGMPA_Bulk_Installer(
-                    new TGMPA_Bulk_Installer_Skin(
+                // Create a new instance of BulkInstaller.
+                $installer = new BulkInstaller(
+                    new BulkInstallerSkin(
                         array(
                             'url'          => esc_url_raw($this->tgmpa->get_tgmpa_url()),
                             'nonce'        => 'bulk-' . $this->_args['plural'],
@@ -962,8 +962,8 @@ if (! class_exists('TGMPA_List_Table')) {
          * Retrieve plugin data, given the plugin name.
          *
          * @since      2.2.0
-         * @deprecated 2.5.0 use {@see TGM_Plugin_Activation::_get_plugin_data_from_name()} instead.
-         * @see        TGM_Plugin_Activation::_get_plugin_data_from_name()
+         * @deprecated 2.5.0 use {@see Manager::_get_plugin_data_from_name()} instead.
+         * @see        Manager::_get_plugin_data_from_name()
          *
          * @param string $name Name of the plugin, as it was registered.
          * @param string $data Optional. Array key of plugin data to return. Default is slug.
@@ -971,7 +971,7 @@ if (! class_exists('TGMPA_List_Table')) {
          */
         protected function _get_plugin_data_from_name($name, $data = 'slug')
         {
-            _deprecated_function(__FUNCTION__, 'TGMPA 2.5.0', 'TGM_Plugin_Activation::_get_plugin_data_from_name()');
+            _deprecated_function(__FUNCTION__, 'TGMPA 2.5.0', 'Manager::_get_plugin_data_from_name()');
 
             return $this->tgmpa->_get_plugin_data_from_name($name, $data);
         }

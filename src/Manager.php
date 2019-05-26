@@ -15,25 +15,9 @@
  * @license   GPL-2.0+
  */
 
-/*
-    Copyright 2011 Thomas Griffin (thomasgriffinmedia.com)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as
-    published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
 namespace Jankx\Plugin;
 
-if (! class_exists('TGM_Plugin_Activation')) {
+if (! class_exists('Manager')) {
 
     /**
      * Automatic plugin installation and activation library.
@@ -48,7 +32,7 @@ if (! class_exists('TGM_Plugin_Activation')) {
      * @author  Thomas Griffin
      * @author  Gary Jones
      */
-    class TGM_Plugin_Activation
+    class Manager
     {
         /**
          * TGMPA version number.
@@ -82,7 +66,7 @@ if (! class_exists('TGM_Plugin_Activation')) {
          *
          * @since 1.0.0
          *
-         * @var TGM_Plugin_Activation
+         * @var Manager
          */
         public static $instance;
 
@@ -252,7 +236,7 @@ if (! class_exists('TGM_Plugin_Activation')) {
          *
          * @since 1.0.0
          *
-         * @see TGM_Plugin_Activation::init()
+         * @see Manager::init()
          */
         public function __construct()
         {
@@ -307,9 +291,9 @@ if (! class_exists('TGM_Plugin_Activation')) {
          *
          * @since 2.0.0
          *
-         * @see TGM_Plugin_Activation::admin_menu()
-         * @see TGM_Plugin_Activation::notices()
-         * @see TGM_Plugin_Activation::styles()
+         * @see Manager::admin_menu()
+         * @see Manager::notices()
+         * @see Manager::styles()
          */
         public function init()
         {
@@ -609,8 +593,8 @@ if (! class_exists('TGM_Plugin_Activation')) {
          *
          * @since 1.0.0
          *
-         * @see TGM_Plugin_Activation::init()
-         * @see TGM_Plugin_Activation::install_plugins_page()
+         * @see Manager::init()
+         * @see Manager::install_plugins_page()
          *
          * @return null Return early if user lacks capability to install a plugin.
          */
@@ -665,7 +649,7 @@ if (! class_exists('TGM_Plugin_Activation')) {
         public function install_plugins_page()
         {
             // Store new instance of plugin table in object.
-            $plugin_table = new TGMPA_List_Table();
+            $plugin_table = new ListTable();
 
             // Return early if processing a plugin installation action.
             if (( ( 'tgmpa-bulk-install' === $plugin_table->current_action() || 'tgmpa-bulk-update' === $plugin_table->current_action() ) && $plugin_table->process_bulk_actions() ) || $this->do_plugin_install()) {
@@ -2061,7 +2045,7 @@ if (! class_exists('TGM_Plugin_Activation')) {
          *
          * @since 2.4.0
          *
-         * @return \TGM_Plugin_Activation The TGM_Plugin_Activation object.
+         * @return Jankx\Plugin\Manager The Manager object.
          */
         public static function get_instance()
         {
@@ -2071,23 +2055,5 @@ if (! class_exists('TGM_Plugin_Activation')) {
 
             return self::$instance;
         }
-    }
-
-    if (! function_exists('load_tgm_plugin_activation')) {
-        /**
-         * Ensure only one instance of the class is ever invoked.
-         *
-         * @since 2.5.0
-         */
-        function load_tgm_plugin_activation()
-        {
-            $GLOBALS['tgmpa'] = TGM_Plugin_Activation::get_instance();
-        }
-    }
-
-    if (did_action('plugins_loaded')) {
-        load_tgm_plugin_activation();
-    } else {
-        add_action('plugins_loaded', 'load_tgm_plugin_activation');
     }
 }

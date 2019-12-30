@@ -1,5 +1,6 @@
 <?php
 namespace Jankx\Plugin;
+use WP_List_Table;
 
 /**
  * WP_List_Table isn't always available. If it isn't available,

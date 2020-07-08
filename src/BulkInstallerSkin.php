@@ -1,6 +1,8 @@
 <?php
 namespace Jankx\Plugin;
 
+use Bulk_Upgrader_Skin;
+
 if (! class_exists('BulkInstallerSkin')) {
 
     /**

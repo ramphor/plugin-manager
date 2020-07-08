@@ -1,6 +1,8 @@
 <?php
 namespace Jankx\Plugin;
 
+use Plugin_Upgrader;
+
 if (! class_exists('BulkInstaller')) {
 
     /**

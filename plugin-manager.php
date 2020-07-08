@@ -11,6 +11,11 @@
  * @package Jankx\Plugin
  */
 
+use Jankx\Plugin\Manager;
+
+if ( ! class_exists( Manager::class ) && file_exists( $composer_file = sprintf( '%s/vendor/autoload.php', dirname( __FILE__ ) ) ) ) {
+    require_once $composer_file;
+}
 
 if (! function_exists('load_Manager')) {
     /**

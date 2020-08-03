@@ -1,5 +1,5 @@
 <?php
-namespace Jankx\Plugin;
+namespace Ramphor\Plugin;
 
 use Plugin_Upgrader;
 

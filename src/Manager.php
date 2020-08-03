@@ -257,8 +257,6 @@ if (! class_exists('Manager')) {
          * is being assigned rather than tested in a conditional, effectively rendering it useless.
          * This 'hack' prevents this from happening.}}
          *
-         * @see https://github.com/TGMPA/Ramphor\Plugin/blob/2.3.6/Ramphor\Plugin/class-Ramphor\Plugin.php#L1593
-         *
          * @since 2.5.2
          *
          * @param string $name  Name of an inaccessible property.

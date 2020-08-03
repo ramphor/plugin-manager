@@ -7,15 +7,15 @@
  * for the support of your plugin or theme. Please contact the plugin
  * or theme author for support.
  *
- * @package   Jankx\Plugin
- * @version   2.6.1 for parent theme Jankx Plugin Manager for publication on WordPress.org
+ * @package   Ramphor\Plugin
+ * @version   2.6.1 for parent theme Ramphor Plugin Manager for publication on WordPress.org
  * @link      http://tgmpluginactivation.com/
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
  * @license   GPL-2.0+
  */
 
-namespace Jankx\Plugin;
+namespace Ramphor\Plugin;
 
 if (! class_exists('Manager')) {
 
@@ -28,7 +28,7 @@ if (! class_exists('Manager')) {
      *
      * @since 1.0.0
      *
-     * @package Jankx\Plugin
+     * @package Ramphor\Plugin
      * @author  Thomas Griffin
      * @author  Gary Jones
      */
@@ -257,7 +257,7 @@ if (! class_exists('Manager')) {
          * is being assigned rather than tested in a conditional, effectively rendering it useless.
          * This 'hack' prevents this from happening.}}
          *
-         * @see https://github.com/TGMPA/Jankx\Plugin/blob/2.3.6/Jankx\Plugin/class-Jankx\Plugin.php#L1593
+         * @see https://github.com/TGMPA/Ramphor\Plugin/blob/2.3.6/Ramphor\Plugin/class-Ramphor\Plugin.php#L1593
          *
          * @since 2.5.2
          *
@@ -2045,7 +2045,7 @@ if (! class_exists('Manager')) {
          *
          * @since 2.4.0
          *
-         * @return Jankx\Plugin\Manager The Manager object.
+         * @return Ramphor\Plugin\Manager The Manager object.
          */
         public static function get_instance()
         {

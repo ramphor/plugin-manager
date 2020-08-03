@@ -1,5 +1,5 @@
 <?php
-namespace Jankx\Plugin;
+namespace Ramphor\Plugin;
 
 use Bulk_Upgrader_Skin;
 
@@ -19,7 +19,7 @@ if (! class_exists('BulkInstallerSkin')) {
      *
      * @see https://core.trac.wordpress.org/browser/trunk/src/wp-admin/includes/class-wp-upgrader-skins.php
      *
-     * @package Jankx\Plugin
+     * @package Ramphor\Plugin
      * @author  Thomas Griffin
      * @author  Gary Jones
      */

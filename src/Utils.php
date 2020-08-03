@@ -1,5 +1,5 @@
 <?php
-namespace Jankx\Plugin;
+namespace Ramphor\Plugin;
 
 if (! class_exists('Utils')) {
     /**
@@ -11,7 +11,7 @@ if (! class_exists('Utils')) {
      *
      * @since 2.5.0
      *
-     * @package Jankx\Plugin
+     * @package Ramphor\Plugin
      * @author  Juliette Reinders Folmer
      */
     class Utils

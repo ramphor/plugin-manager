@@ -17,7 +17,7 @@ if (! class_exists('BulkInstaller')) {
      * {@internal Since 2.5.2 the class has been renamed from TGM_Bulk_Installer to BulkInstaller.
      *            This was done to prevent backward compatibility issues with v2.3.6.}}
      *
-     * @package Jankx\Plugin
+     * @package Ramphor\Plugin
      * @author  Thomas Griffin
      * @author  Gary Jones
      */

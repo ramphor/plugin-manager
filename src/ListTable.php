@@ -1,5 +1,5 @@
 <?php
-namespace Jankx\Plugin;
+namespace Ramphor\Plugin;
 use WP_List_Table;
 
 /**
@@ -27,7 +27,7 @@ if (! class_exists('ListTable')) {
      *
      * @since 2.2.0
      *
-     * @package Jankx\Plugin
+     * @package Ramphor\Plugin
      * @author  Thomas Griffin
      * @author  Gary Jones
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Jankx Plugin Manager
+ * Plugin Name: Ramphor Plugin Manager
  * Plugin URI: https://puleeno.com
  * Author: Puleeno Nguyen
  * Author URI: https://puleeno.com
@@ -8,10 +8,10 @@
  * Description: Manage plugin the lightway to require and recommended plugins for WordPress.
  * Tags: plugin manager, recommended, require, dependences
  *
- * @package Jankx\Plugin
+ * @package Ramphor\Plugin
  */
 
-use Jankx\Plugin\Manager;
+use Ramphor\Plugin\Manager;
 
 if ( ! class_exists( Manager::class ) && file_exists( $composer_file = sprintf( '%s/vendor/autoload.php', dirname( __FILE__ ) ) ) ) {
     require_once $composer_file;

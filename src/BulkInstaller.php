@@ -91,8 +91,8 @@ if (! class_exists('BulkInstaller')) {
          */
         public function activate_strings()
         {
-            $this->strings['activation_failed']  = __('Plugin activation failed.', 'jankx');
-            $this->strings['activation_success'] = __('Plugin activated successfully.', 'jankx');
+            $this->strings['activation_failed']  = __('Plugin activation failed.', 'ramphor_plugin_manager');
+            $this->strings['activation_success'] = __('Plugin activated successfully.', 'ramphor_plugin_manager');
         }
 
         /**

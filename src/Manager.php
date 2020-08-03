@@ -312,77 +312,77 @@ if (! class_exists('Manager')) {
 
             // Load class strings.
             $this->strings = array(
-                'page_title'                      => __('Install Required Plugins', 'jankx'),
-                'menu_title'                      => __('Install Plugins', 'jankx'),
+                'page_title'                      => __('Install Required Plugins', 'ramphor_plugin_manager'),
+                'menu_title'                      => __('Install Plugins', 'ramphor_plugin_manager'),
                 /* translators: %s: plugin name. */
-                'installing'                      => __('Installing Plugin: %s', 'jankx'),
+                'installing'                      => __('Installing Plugin: %s', 'ramphor_plugin_manager'),
                 /* translators: %s: plugin name. */
-                'updating'                        => __('Updating Plugin: %s', 'jankx'),
-                'oops'                            => __('Something went wrong with the plugin API.', 'jankx'),
+                'updating'                        => __('Updating Plugin: %s', 'ramphor_plugin_manager'),
+                'oops'                            => __('Something went wrong with the plugin API.', 'ramphor_plugin_manager'),
                 'notice_can_install_required'     => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'This theme requires the following plugin: %1$s.',
                     'This theme requires the following plugins: %1$s.',
-                    'jankx'
+                    'ramphor'
                 ),
                 'notice_can_install_recommended'  => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'This theme recommends the following plugin: %1$s.',
                     'This theme recommends the following plugins: %1$s.',
-                    'jankx'
+                    'ramphor'
                 ),
                 'notice_ask_to_update'            => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
                     'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-                    'jankx'
+                    'ramphor'
                 ),
                 'notice_ask_to_update_maybe'      => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'There is an update available for: %1$s.',
                     'There are updates available for the following plugins: %1$s.',
-                    'jankx'
+                    'ramphor'
                 ),
                 'notice_can_activate_required'    => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'The following required plugin is currently inactive: %1$s.',
                     'The following required plugins are currently inactive: %1$s.',
-                    'jankx'
+                    'ramphor'
                 ),
                 'notice_can_activate_recommended' => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'The following recommended plugin is currently inactive: %1$s.',
                     'The following recommended plugins are currently inactive: %1$s.',
-                    'jankx'
+                    'ramphor'
                 ),
                 'install_link'                    => _n_noop(
                     'Begin installing plugin',
                     'Begin installing plugins',
-                    'jankx'
+                    'ramphor'
                 ),
                 'update_link'                     => _n_noop(
                     'Begin updating plugin',
                     'Begin updating plugins',
-                    'jankx'
+                    'ramphor'
                 ),
                 'activate_link'                   => _n_noop(
                     'Begin activating plugin',
                     'Begin activating plugins',
-                    'jankx'
+                    'ramphor'
                 ),
-                'return'                          => __('Return to Required Plugins Installer', 'jankx'),
-                'dashboard'                       => __('Return to the Dashboard', 'jankx'),
-                'plugin_activated'                => __('Plugin activated successfully.', 'jankx'),
-                'activated_successfully'          => __('The following plugin was activated successfully:', 'jankx'),
+                'return'                          => __('Return to Required Plugins Installer', 'ramphor_plugin_manager'),
+                'dashboard'                       => __('Return to the Dashboard', 'ramphor_plugin_manager'),
+                'plugin_activated'                => __('Plugin activated successfully.', 'ramphor_plugin_manager'),
+                'activated_successfully'          => __('The following plugin was activated successfully:', 'ramphor_plugin_manager'),
                 /* translators: 1: plugin name. */
-                'plugin_already_active'           => __('No action taken. Plugin %1$s was already active.', 'jankx'),
+                'plugin_already_active'           => __('No action taken. Plugin %1$s was already active.', 'ramphor_plugin_manager'),
                 /* translators: 1: plugin name. */
-                'plugin_needs_higher_version'     => __('Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'jankx'),
+                'plugin_needs_higher_version'     => __('Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'ramphor_plugin_manager'),
                 /* translators: 1: dashboard link. */
-                'complete'                        => __('All plugins installed and activated successfully. %1$s', 'jankx'),
-                'dismiss'                         => __('Dismiss this notice', 'jankx'),
-                'notice_cannot_install_activate'  => __('There are one or more required or recommended plugins to install, update or activate.', 'jankx'),
-                'contact_admin'                   => __('Please contact the administrator of this site for help.', 'jankx'),
+                'complete'                        => __('All plugins installed and activated successfully. %1$s', 'ramphor_plugin_manager'),
+                'dismiss'                         => __('Dismiss this notice', 'ramphor_plugin_manager'),
+                'notice_cannot_install_activate'  => __('There are one or more required or recommended plugins to install, update or activate.', 'ramphor_plugin_manager'),
+                'contact_admin'                   => __('Please contact the administrator of this site for help.', 'ramphor_plugin_manager'),
             );
 
             do_action('tgmpa_register');
@@ -511,8 +511,8 @@ if (! class_exists('Manager')) {
             $actions['update'] = sprintf(
                 '<a href="%1$s" title="%2$s" class="edit">%3$s</a>',
                 esc_url($this->get_tgmpa_status_url('update')),
-                esc_attr__('This plugin needs to be updated to be compatible with your theme.', 'jankx'),
-                esc_html__('Update Required', 'jankx')
+                esc_attr__('This plugin needs to be updated to be compatible with your theme.', 'ramphor_plugin_manager'),
+                esc_html__('Update Required', 'ramphor_plugin_manager')
             );
 
             return $actions;
@@ -821,7 +821,7 @@ if (! class_exists('Manager')) {
 
                 // Display message based on if all plugins are now active or not.
                 if ($this->is_tgmpa_complete()) {
-                    echo '<p>', sprintf(esc_html($this->strings['complete']), '<a href="' . esc_url(self_admin_url()) . '">' . esc_html__('Return to the Dashboard', 'jankx') . '</a>'), '</p>';
+                    echo '<p>', sprintf(esc_html($this->strings['complete']), '<a href="' . esc_url(self_admin_url()) . '">' . esc_html__('Return to the Dashboard', 'ramphor_plugin_manager') . '</a>'), '</p>';
                     echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                 } else {
                     echo '<p><a href="', esc_url($this->get_tgmpa_url()), '" target="_parent">', esc_html($this->strings['return']), '</a></p>';
@@ -932,7 +932,7 @@ if (! class_exists('Manager')) {
                     } else {
                         return new WP_Error(
                             'rename_failed',
-                            esc_html__('The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'jankx') . ' ' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'jankx'),
+                            esc_html__('The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'ramphor_plugin_manager') . ' ' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'ramphor_plugin_manager'),
                             array(
                                 'found'    => $subdir_name,
                                 'expected' => $desired_slug,
@@ -942,7 +942,7 @@ if (! class_exists('Manager')) {
                 } elseif (empty($subdir_name)) {
                     return new WP_Error(
                         'packaged_wrong',
-                        esc_html__('The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'jankx') . ' ' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'jankx'),
+                        esc_html__('The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'ramphor_plugin_manager') . ' ' . esc_html__('Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'ramphor_plugin_manager'),
                         array(
                             'found'    => $subdir_name,
                             'expected' => $desired_slug,
@@ -1131,12 +1131,12 @@ if (! class_exists('Manager')) {
                         $count          = count($plugin_group);
                         $linked_plugins = array_map(array( Utils::class, 'wrap_in_em' ), $linked_plugins);
                         $last_plugin    = array_pop($linked_plugins); // Pop off last name to prep for readability.
-                        $imploded       = empty($linked_plugins) ? $last_plugin : ( implode(', ', $linked_plugins) . ' ' . esc_html_x('and', 'plugin A *and* plugin B', 'jankx') . ' ' . $last_plugin );
+                        $imploded       = empty($linked_plugins) ? $last_plugin : ( implode(', ', $linked_plugins) . ' ' . esc_html_x('and', 'plugin A *and* plugin B', 'ramphor_plugin_manager') . ' ' . $last_plugin );
 
                         $rendered .= sprintf(
                             $line_template,
                             sprintf(
-                                translate_nooped_plural($this->strings[ $type ], $count, 'jankx'),
+                                translate_nooped_plural($this->strings[ $type ], $count, 'ramphor_plugin_manager'),
                                 $imploded,
                                 $count
                             )
@@ -1184,14 +1184,14 @@ if (! class_exists('Manager')) {
                 if ($install_count > 0) {
                     $action_links['install'] = sprintf(
                         $link_template,
-                        translate_nooped_plural($this->strings['install_link'], $install_count, 'jankx'),
+                        translate_nooped_plural($this->strings['install_link'], $install_count, 'ramphor_plugin_manager'),
                         esc_url($this->get_tgmpa_status_url('install'))
                     );
                 }
                 if ($update_count > 0) {
                     $action_links['update'] = sprintf(
                         $link_template,
-                        translate_nooped_plural($this->strings['update_link'], $update_count, 'jankx'),
+                        translate_nooped_plural($this->strings['update_link'], $update_count, 'ramphor_plugin_manager'),
                         esc_url($this->get_tgmpa_status_url('update'))
                     );
                 }
@@ -1200,7 +1200,7 @@ if (! class_exists('Manager')) {
             if (current_user_can('activate_plugins') && $activate_count > 0) {
                 $action_links['activate'] = sprintf(
                     $link_template,
-                    translate_nooped_plural($this->strings['activate_link'], $activate_count, 'jankx'),
+                    translate_nooped_plural($this->strings['activate_link'], $activate_count, 'ramphor_plugin_manager'),
                     esc_url($this->get_tgmpa_status_url('activate'))
                 );
             }
@@ -2033,7 +2033,7 @@ if (! class_exists('Manager')) {
                 esc_html(
                     sprintf(
                         /* translators: %s: version number */
-                        __('TGMPA v%s', 'jankx'),
+                        __('TGMPA v%s', 'ramphor_plugin_manager'),
                         self::TGMPA_VERSION
                     )
                 ),

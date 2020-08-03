@@ -1,5 +1,6 @@
 <?php
 namespace Ramphor\Plugin;
+
 use WP_List_Table;
 
 /**
@@ -221,10 +222,10 @@ if (! class_exists('ListTable')) {
         protected function get_plugin_advise_type_text($required)
         {
             if (true === $required) {
-                return __('Required', 'jankx');
+                return __('Required', 'ramphor_plugin_manager');
             }
 
-            return __('Recommended', 'jankx');
+            return __('Recommended', 'ramphor_plugin_manager');
         }
 
         /**
@@ -241,13 +242,13 @@ if (! class_exists('ListTable')) {
 
             switch ($type) {
                 case 'repo':
-                    $string = __('WordPress Repository', 'jankx');
+                    $string = __('WordPress Repository', 'ramphor_plugin_manager');
                     break;
                 case 'external':
-                    $string = __('External Source', 'jankx');
+                    $string = __('External Source', 'ramphor_plugin_manager');
                     break;
                 case 'bundled':
-                    $string = __('Pre-Packaged', 'jankx');
+                    $string = __('Pre-Packaged', 'ramphor_plugin_manager');
                     break;
             }
 
@@ -265,23 +266,23 @@ if (! class_exists('ListTable')) {
         protected function get_plugin_status_text($slug)
         {
             if (! $this->tgmpa->is_plugin_installed($slug)) {
-                return __('Not Installed', 'jankx');
+                return __('Not Installed', 'ramphor_plugin_manager');
             }
 
             if (! $this->tgmpa->is_plugin_active($slug)) {
-                $install_status = __('Installed But Not Activated', 'jankx');
+                $install_status = __('Installed But Not Activated', 'ramphor_plugin_manager');
             } else {
-                $install_status = __('Active', 'jankx');
+                $install_status = __('Active', 'ramphor_plugin_manager');
             }
 
             $update_status = '';
 
             if ($this->tgmpa->does_plugin_require_update($slug) && false === $this->tgmpa->does_plugin_have_update($slug)) {
-                $update_status = __('Required Update not Available', 'jankx');
+                $update_status = __('Required Update not Available', 'ramphor_plugin_manager');
             } elseif ($this->tgmpa->does_plugin_require_update($slug)) {
-                $update_status = __('Requires Update', 'jankx');
+                $update_status = __('Requires Update', 'ramphor_plugin_manager');
             } elseif (false !== $this->tgmpa->does_plugin_have_update($slug)) {
-                $update_status = __('Update recommended', 'jankx');
+                $update_status = __('Update recommended', 'ramphor_plugin_manager');
             }
 
             if ('' === $update_status) {
@@ -290,7 +291,7 @@ if (! class_exists('ListTable')) {
 
             return sprintf(
                 /* translators: 1: install status, 2: update status */
-                _x('%1$s, %2$s', 'Install/Update Status', 'jankx'),
+                _x('%1$s, %2$s', 'Install/Update Status', 'ramphor_plugin_manager'),
                 $install_status,
                 $update_status
             );
@@ -338,19 +339,19 @@ if (! class_exists('ListTable')) {
                 switch ($type) {
                     case 'all':
                         /* translators: 1: number of plugins. */
-                        $text = _nx('All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'jankx');
+                        $text = _nx('All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'ramphor_plugin_manager');
                         break;
                     case 'install':
                         /* translators: 1: number of plugins. */
-                        $text = _n('To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'jankx');
+                        $text = _n('To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'ramphor_plugin_manager');
                         break;
                     case 'update':
                         /* translators: 1: number of plugins. */
-                        $text = _n('Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'jankx');
+                        $text = _n('Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'ramphor_plugin_manager');
                         break;
                     case 'activate':
                         /* translators: 1: number of plugins. */
-                        $text = _n('To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'jankx');
+                        $text = _n('To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'ramphor_plugin_manager');
                         break;
                     default:
                         $text = '';
@@ -435,7 +436,7 @@ if (! class_exists('ListTable')) {
             $output = array();
 
             if ($this->tgmpa->is_plugin_installed($item['slug'])) {
-                $installed = ! empty($item['installed_version']) ? $item['installed_version'] : _x('unknown', 'as in: "version nr unknown"', 'jankx');
+                $installed = ! empty($item['installed_version']) ? $item['installed_version'] : _x('unknown', 'as in: "version nr unknown"', 'ramphor_plugin_manager');
 
                 $color = '';
                 if (! empty($item['minimum_version']) && $this->tgmpa->does_plugin_require_update($item['slug'])) {
@@ -443,7 +444,7 @@ if (! class_exists('ListTable')) {
                 }
 
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __('Installed version:', 'jankx') . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __('Installed version:', 'ramphor_plugin_manager') . '</p>',
                     $color,
                     $installed
                 );
@@ -451,7 +452,7 @@ if (! class_exists('ListTable')) {
 
             if (! empty($item['minimum_version'])) {
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . __('Minimum required version:', 'jankx') . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . __('Minimum required version:', 'ramphor_plugin_manager') . '</p>',
                     $item['minimum_version']
                 );
             }
@@ -463,7 +464,7 @@ if (! class_exists('ListTable')) {
                 }
 
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __('Available version:', 'jankx') . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . __('Available version:', 'ramphor_plugin_manager') . '</p>',
                     $color,
                     $item['available_version']
                 );
@@ -487,7 +488,7 @@ if (! class_exists('ListTable')) {
          */
         public function no_items()
         {
-            echo esc_html__('No plugins to install, update or activate.', 'jankx') . ' <a href="' . esc_url(self_admin_url()) . '"> ' . esc_html__('Return to the Dashboard', 'jankx') . '</a>';
+            echo esc_html__('No plugins to install, update or activate.', 'ramphor_plugin_manager') . ' <a href="' . esc_url(self_admin_url()) . '"> ' . esc_html__('Return to the Dashboard', 'ramphor_plugin_manager') . '</a>';
             echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
         }
 
@@ -502,14 +503,14 @@ if (! class_exists('ListTable')) {
         {
             $columns = array(
                 'cb'     => '<input type="checkbox" />',
-                'plugin' => __('Plugin', 'jankx'),
-                'source' => __('Source', 'jankx'),
-                'type'   => __('Type', 'jankx'),
+                'plugin' => __('Plugin', 'ramphor_plugin_manager'),
+                'source' => __('Source', 'ramphor_plugin_manager'),
+                'type'   => __('Type', 'ramphor_plugin_manager'),
             );
 
             if ('all' === $this->view_context || 'update' === $this->view_context) {
-                $columns['version'] = __('Version', 'jankx');
-                $columns['status']  = __('Status', 'jankx');
+                $columns['version'] = __('Version', 'ramphor_plugin_manager');
+                $columns['status']  = __('Status', 'ramphor_plugin_manager');
             }
 
             return apply_filters('tgmpa_table_columns', $columns);
@@ -561,18 +562,18 @@ if (! class_exists('ListTable')) {
             // Display the 'Install' action link if the plugin is not yet available.
             if (! $this->tgmpa->is_plugin_installed($item['slug'])) {
                 /* translators: %2$s: plugin name in screen reader markup */
-                $actions['install'] = __('Install %2$s', 'jankx');
+                $actions['install'] = __('Install %2$s', 'ramphor_plugin_manager');
             } else {
                 // Display the 'Update' action link if an update is available and WP complies with plugin minimum.
                 if (false !== $this->tgmpa->does_plugin_have_update($item['slug']) && $this->tgmpa->can_plugin_update($item['slug'])) {
                     /* translators: %2$s: plugin name in screen reader markup */
-                    $actions['update'] = __('Update %2$s', 'jankx');
+                    $actions['update'] = __('Update %2$s', 'ramphor_plugin_manager');
                 }
 
                 // Display the 'Activate' action link, but only if the plugin meets the minimum version.
                 if ($this->tgmpa->can_plugin_activate($item['slug'])) {
                     /* translators: %2$s: plugin name in screen reader markup */
-                    $actions['activate'] = __('Activate %2$s', 'jankx');
+                    $actions['activate'] = __('Activate %2$s', 'ramphor_plugin_manager');
                 }
             }
 
@@ -644,7 +645,7 @@ if (! class_exists('ListTable')) {
 				<tr class="plugin-update-tr">
 					<td colspan="', absint($this->get_column_count()), '" class="plugin-update colspanchange">
 						<div class="update-message">',
-                            esc_html__('Upgrade message from the plugin author:', 'jankx'),
+                            esc_html__('Upgrade message from the plugin author:', 'ramphor_plugin_manager'),
                             ' <strong>', wp_kses_data($item['upgrade_notice']), '</strong>
 						</div>
 					</td>
@@ -679,16 +680,16 @@ if (! class_exists('ListTable')) {
 
             if ('update' !== $this->view_context && 'activate' !== $this->view_context) {
                 if (current_user_can('install_plugins')) {
-                    $actions['tgmpa-bulk-install'] = __('Install', 'jankx');
+                    $actions['tgmpa-bulk-install'] = __('Install', 'ramphor_plugin_manager');
                 }
             }
 
             if ('install' !== $this->view_context) {
                 if (current_user_can('update_plugins')) {
-                    $actions['tgmpa-bulk-update'] = __('Update', 'jankx');
+                    $actions['tgmpa-bulk-update'] = __('Update', 'ramphor_plugin_manager');
                 }
                 if (current_user_can('activate_plugins')) {
-                    $actions['tgmpa-bulk-activate'] = __('Activate', 'jankx');
+                    $actions['tgmpa-bulk-activate'] = __('Activate', 'ramphor_plugin_manager');
                 }
             }
 
@@ -719,9 +720,9 @@ if (! class_exists('ListTable')) {
                 // Did user actually select any plugins to install/update ?
                 if (empty($_POST['plugin'])) {
                     if ('install' === $install_type) {
-                        $message = __('No plugins were selected to be installed. No action taken.', 'jankx');
+                        $message = __('No plugins were selected to be installed. No action taken.', 'ramphor_plugin_manager');
                     } else {
-                        $message = __('No plugins were selected to be updated. No action taken.', 'jankx');
+                        $message = __('No plugins were selected to be updated. No action taken.', 'ramphor_plugin_manager');
                     }
 
                     echo '<div id="message" class="error"><p>', esc_html($message), '</p></div>';
@@ -762,9 +763,9 @@ if (! class_exists('ListTable')) {
                 // No need to proceed further if we have no plugins to handle.
                 if (empty($plugins_to_install)) {
                     if ('install' === $install_type) {
-                        $message = __('No plugins are available to be installed at this time.', 'jankx');
+                        $message = __('No plugins are available to be installed at this time.', 'ramphor_plugin_manager');
                     } else {
-                        $message = __('No plugins are available to be updated at this time.', 'jankx');
+                        $message = __('No plugins are available to be updated at this time.', 'ramphor_plugin_manager');
                     }
 
                     echo '<div id="message" class="error"><p>', esc_html($message), '</p></div>';
@@ -869,7 +870,7 @@ if (! class_exists('ListTable')) {
 
                 // Did user actually select any plugins to activate ?
                 if (empty($_POST['plugin'])) {
-                    echo '<div id="message" class="error"><p>', esc_html__('No plugins were selected to be activated. No action taken.', 'jankx'), '</p></div>';
+                    echo '<div id="message" class="error"><p>', esc_html__('No plugins were selected to be activated. No action taken.', 'ramphor_plugin_manager'), '</p></div>';
 
                     return false;
                 }
@@ -895,7 +896,7 @@ if (! class_exists('ListTable')) {
 
                 // Return early if there are no plugins to activate.
                 if (empty($plugins_to_activate)) {
-                    echo '<div id="message" class="error"><p>', esc_html__('No plugins are available to be activated at this time.', 'jankx'), '</p></div>';
+                    echo '<div id="message" class="error"><p>', esc_html__('No plugins are available to be activated at this time.', 'ramphor_plugin_manager'), '</p></div>';
 
                     return false;
                 }
@@ -909,11 +910,11 @@ if (! class_exists('ListTable')) {
                     $count        = count($plugin_names); // Count so we can use _n function.
                     $plugin_names = array_map(array( Utils::class, 'wrap_in_strong' ), $plugin_names);
                     $last_plugin  = array_pop($plugin_names); // Pop off last name to prep for readability.
-                    $imploded     = empty($plugin_names) ? $last_plugin : ( implode(', ', $plugin_names) . ' ' . esc_html_x('and', 'plugin A *and* plugin B', 'jankx') . ' ' . $last_plugin );
+                    $imploded     = empty($plugin_names) ? $last_plugin : ( implode(', ', $plugin_names) . ' ' . esc_html_x('and', 'plugin A *and* plugin B', 'ramphor_plugin_manager') . ' ' . $last_plugin );
 
                     printf( // WPCS: xss ok.
                         '<div id="message" class="updated"><p>%1$s %2$s.</p></div>',
-                        esc_html(_n('The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'jankx')),
+                        esc_html(_n('The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'ramphor_plugin_manager')),
                         $imploded
                     );
 

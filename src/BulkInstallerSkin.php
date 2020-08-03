@@ -102,29 +102,29 @@ if (! class_exists('BulkInstallerSkin')) {
             if ('update' === $this->options['install_type']) {
                 parent::add_strings();
                 /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                $this->upgrader->strings['skin_before_update_header'] = __('Updating Plugin %1$s (%2$d/%3$d)', 'jankx');
+                $this->upgrader->strings['skin_before_update_header'] = __('Updating Plugin %1$s (%2$d/%3$d)', 'ramphor_plugin_manager');
             } else {
                 /* translators: 1: plugin name, 2: error message. */
-                $this->upgrader->strings['skin_update_failed_error'] = __('An error occurred while installing %1$s: <strong>%2$s</strong>.', 'jankx');
+                $this->upgrader->strings['skin_update_failed_error'] = __('An error occurred while installing %1$s: <strong>%2$s</strong>.', 'ramphor_plugin_manager');
                 /* translators: 1: plugin name. */
-                $this->upgrader->strings['skin_update_failed'] = __('The installation of %1$s failed.', 'jankx');
+                $this->upgrader->strings['skin_update_failed'] = __('The installation of %1$s failed.', 'ramphor_plugin_manager');
 
                 if ($this->tgmpa->is_automatic) {
                     // Automatic activation strings.
-                    $this->upgrader->strings['skin_upgrade_start'] = __('The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'jankx');
+                    $this->upgrader->strings['skin_upgrade_start'] = __('The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'ramphor_plugin_manager');
                     /* translators: 1: plugin name. */
-                    $this->upgrader->strings['skin_update_successful'] = __('%1$s installed and activated successfully.', 'jankx') . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__('Show Details', 'jankx') . '</span><span class="hidden">' . esc_html__('Hide Details', 'jankx') . '</span>.</a>';
-                    $this->upgrader->strings['skin_upgrade_end']       = __('All installations and activations have been completed.', 'jankx');
+                    $this->upgrader->strings['skin_update_successful'] = __('%1$s installed and activated successfully.', 'ramphor_plugin_manager') . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__('Show Details', 'ramphor_plugin_manager') . '</span><span class="hidden">' . esc_html__('Hide Details', 'ramphor_plugin_manager') . '</span>.</a>';
+                    $this->upgrader->strings['skin_upgrade_end']       = __('All installations and activations have been completed.', 'ramphor_plugin_manager');
                     /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                    $this->upgrader->strings['skin_before_update_header'] = __('Installing and Activating Plugin %1$s (%2$d/%3$d)', 'jankx');
+                    $this->upgrader->strings['skin_before_update_header'] = __('Installing and Activating Plugin %1$s (%2$d/%3$d)', 'ramphor_plugin_manager');
                 } else {
                     // Default installation strings.
-                    $this->upgrader->strings['skin_upgrade_start'] = __('The installation process is starting. This process may take a while on some hosts, so please be patient.', 'jankx');
+                    $this->upgrader->strings['skin_upgrade_start'] = __('The installation process is starting. This process may take a while on some hosts, so please be patient.', 'ramphor_plugin_manager');
                     /* translators: 1: plugin name. */
-                    $this->upgrader->strings['skin_update_successful'] = esc_html__('%1$s installed successfully.', 'jankx') . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__('Show Details', 'jankx') . '</span><span class="hidden">' . esc_html__('Hide Details', 'jankx') . '</span>.</a>';
-                    $this->upgrader->strings['skin_upgrade_end']       = __('All installations have been completed.', 'jankx');
+                    $this->upgrader->strings['skin_update_successful'] = esc_html__('%1$s installed successfully.', 'ramphor_plugin_manager') . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__('Show Details', 'ramphor_plugin_manager') . '</span><span class="hidden">' . esc_html__('Hide Details', 'ramphor_plugin_manager') . '</span>.</a>';
+                    $this->upgrader->strings['skin_upgrade_end']       = __('All installations have been completed.', 'ramphor_plugin_manager');
                     /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                    $this->upgrader->strings['skin_before_update_header'] = __('Installing Plugin %1$s (%2$d/%3$d)', 'jankx');
+                    $this->upgrader->strings['skin_before_update_header'] = __('Installing Plugin %1$s (%2$d/%3$d)', 'ramphor_plugin_manager');
                 }
             }
         }
@@ -187,7 +187,7 @@ if (! class_exists('BulkInstallerSkin')) {
                 echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                 $update_actions['dashboard'] = sprintf(
                     esc_html($this->tgmpa->strings['complete']),
-                    '<a href="' . esc_url(self_admin_url()) . '">' . esc_html__('Return to the Dashboard', 'jankx') . '</a>'
+                    '<a href="' . esc_url(self_admin_url()) . '">' . esc_html__('Return to the Dashboard', 'ramphor_plugin_manager') . '</a>'
                 );
             } else {
                 $update_actions['tgmpa_page'] = '<a href="' . esc_url($this->tgmpa->get_tgmpa_url()) . '" target="_parent">' . esc_html($this->tgmpa->strings['return']) . '</a>';

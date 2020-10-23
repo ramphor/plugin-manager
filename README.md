@@ -1,7 +1,7 @@
 Ramphor Plugin Manager
 =
 
-This libary is a fork of [TGMPA/TGM-Plugin-Activation](https://github.com/TGMPA/TGM-Plugin-Activation) repo and follow [PSR Coding Standard](https://www.php-fig.org/psr/) to easy maintenance
+This libary is a fork of [TGMPA/TGM-Plugin-Activation](https://github.com/TGMPA/TGM-Plugin-Activation) repo and follow [PSR1 and PSR2 Coding Standard](https://www.php-fig.org/psr/) to easy maintenance
 
 ## FAQs
 

@@ -8,7 +8,7 @@ This libary is a fork of [TGMPA/TGM-Plugin-Activation](https://github.com/TGMPA/
 1. Ramphor Plugin Manager is a fork of TGMPA/TGM-Plugin-Activation. But do you have to keep the original class structure?
 => I don't keep the original class structure. So if you call TGMPA/TGM-Plugin-Activation classes will occur errors. But I have kept TGM-Plugin-Activation helpers and you can use them.
 2. Why do you modify TGMPA/TGM-Plugin-Activation source code?
-=> I must modify many features in TGMPA/TGM-Plugin-Activation to integrate with [Jankx Framework](https://github.com/jankx/jankx). But with origin source code structure it made difficult to develop. So I have changed the source code structure and follow PSR Coding Standard.
+=> I must modify many features in TGMPA/TGM-Plugin-Activation to integrate with [Jankx Framework](https://github.com/jankx/jankx) and the origin source code structure it made difficult to develop. So I have changed the source code structure and follow PSR Coding Standard.
 
 
 ## LICENSE
